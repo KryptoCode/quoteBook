@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Quote Book</title>
+</head>
+<body ng-controller="mainController">
+	<div ng-repeat="quote in quotes | filter:searchQuotes">
+		<p>{{$index + 1}}<p>
+		<p>"{{quote.text}}"</p>
+		<p> ~ by: {{quote.author}}</p>
+	</div><br />
+	<p>Search Quotes: 
+	<select id="search-quotes" ng-model="searchQuotes">
+		<option value="">All<option>
+		<option value="Albert Einstein">Albert Einstein</option>
+		<option value="Amelia Earhart">Amelia Earhart</option>
+		<option value="John Lennon">John Lennon</option>
+		<option value="Kevin Kruse">Kevin Kruse</option>
+		<option value="Napoleon Hill">Napoleon Hill</option>
+		<option value="Robert Frost">Robert Frost</option>
+		<option value="Tyler S. McGinnis">Tyler S. McGinnis</option>		
+	</select></p>
+	<p>Enter New Quote: <input id="new-quote" ng-model="quote.text" /></p>
+	<p>Enter Author: <input id="new-quote-author" ng-model="quote.author" /></p>
+	<p>Remove Quote: <input type="number" id="rmvQuoteField" ng-model="rmvIndex" /></p>
+	<button id="submit-new-quote" ng-click="addQuote()">Submit New Quote</button> <button id="removeQuote" ng-click="removeQuote()">Remove Quote</button>
+	<br />
+	<br />
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="myApp.js"></script>
+<script src="mainController.js"></script>
+<script src="myServices.js"></script>
+</body>
+</html>
